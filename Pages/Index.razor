@@ -1,0 +1,43 @@
+﻿@page "/"
+
+<SfMention TItem="UserData" Target="#mentionIntegration .e-rte-content .e-content" DataSource="@data"
+                           PopupHeight="200px" PopupWidth="250px" ShowMentionChar=true
+                            MentionChar="@MentionCharacter" AllowSpaces=true SuffixText=" Welcome!"
+                            SortOrder="SortOrder.Ascending" FilterType="Syncfusion.Blazor.DropDowns.FilterType.EndsWith">
+                      
+                                                  
+
+    <ChildContent>
+        <MentionFieldSettings Text="Name"></MentionFieldSettings>
+    </ChildContent>
+
+</SfMention>
+
+<SfRichTextEditor ID="mentionIntegration"></SfRichTextEditor>
+
+
+
+
+    
+
+
+
+@code{
+    private char MentionCharacter { get; set; } = '#';
+
+    public class UserData
+    {
+        public string Name { get; set; }
+        public string EmailId { get; set; }
+
+    }
+
+    public List<UserData> data = new List<UserData>()
+    {
+        new UserData { Name= "Selma Rose", EmailId= "selma@gmail.com"},
+         new UserData { Name = "Maria", EmailId = "maria@gmail.com" },
+        new UserData { Name = "Russo kay", EmailId = "russo@gmail.com" },
+        new UserData { Name = "Robert", EmailId = "robert@gmail.com" },
+        new UserData { Name = "Garth", EmailId = "garth@gmail.com" }
+    };
+}
